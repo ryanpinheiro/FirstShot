@@ -7,6 +7,7 @@ public class Character1 : MonoBehaviour
     public float speed;
     public float jumbforce;
     private Animator anin;
+    SpriteRenderer  _SpriteRedere;
 
     private Rigidbody2D rig;
 
@@ -16,6 +17,7 @@ public class Character1 : MonoBehaviour
     {
         rig = GetComponent<Rigidbody2D>();
         anin = GetComponent<Animator>();
+        _SpriteRedere = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -33,14 +35,17 @@ public class Character1 : MonoBehaviour
     if (Input.GetAxis("Horizontal") > 0f){ 
 
         anin.SetBool("dele", false);
+        _SpriteRedere.flipX = false;
+        
     }
     if (Input.GetAxis("Horizontal") < 0f){
                
                anin.SetBool("dele",false);
+               _SpriteRedere.flipX = true;
     }
     if (Input.GetAxis("Horizontal") == 0f){
                
-               anin.SetBool("dele",true);
+               anin.SetBool("dele",true); 
     }
      }
         
